@@ -1,0 +1,33 @@
+create database hindustan;
+
+use hindustan;
+create table students(id int,name varchar(10));
+desc students;
+
+create table s2(id int primary key,name char(10));
+desc s2;
+insert into s2 values(100,"vams");
+
+create table s3(id int primary key auto_increment,name char(10));
+desc s3;
+insert into s3 values(100,"saran");
+insert into s3 values(101,"kiruba");
+
+create table s4(id int,skill set("c","c++","java"));
+insert into s4 values(100,"c,c++");
+select * from s4;
+
+create table s5(id int,gen enum("Male","Female"));
+insert into s5 values(11,"Male");
+select * from s5;
+
+create table s6(id int,name varchar(10) default "vamanan");
+insert into s6(id) values(11);
+select * from s6;
+
+create table s7(name char(20),sal int,bon int,tot int generated always as (sal+bon));
+insert into s7(name,sal,bon) values("saran",1000,2000);
+select * from s7;
+
+create table s8(id int unique,name varchar(10));
+desc s8;
