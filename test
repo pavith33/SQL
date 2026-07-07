@@ -24,5 +24,15 @@ INSERT INTO Emp (id, name, age, salary, dept, designation) VALUES
 (49, 'Vinod', 28, 390000, 'Tester', 'Test Engineer'),
 (50, 'Akash',25,450000,'Developer','Technical Architect');
 
-select *from emp
+select *from emp;
+
+select dept,sum(salary)from emp group by dept;
+select name from emp where age>30 and dept="HR";
+select count(*) from emp where age<40 and salary<500000;
+select name,salary from emp order by salary desc limit 10;
+select 
+
+
+
+
 
