@@ -1,0 +1,46 @@
+create database day2;
+use day2;
+
+
+create table stu (id int,name varchar(10),dept varchar(5));
+
+insert into stu values(100,"nizar","cse");
+insert into stu values(101,"kavin","ece");
+insert into stu values(102,"rajesh","ece");
+insert into stu values(102,"vams","cse");
+
+select * from stu;
+
+set sql_safe_updates=0;
+
+update stu set id=103 where name="vams";
+update stu set dept="eee" where dept="cse";
+update stu set dept=if(id=101,"ece","cse");
+
+alter table stu add column mark int(10);
+update stu set mark=if(dept="cse",100,50);
+update stu set mark=40 where name like "v%";
+
+select * from stu order by mark;
+select* from stu order by mark desc;
+select id,name from stu order by mark;
+select count(*)from stu;
+select dept,count(*) from stu group by dept;
+select* from stu where dept="cse";
+select * from stu  where id>100 and id<102;
+
+select *,case
+when mark>50 then "pass"
+when mark>70 then "distinction"
+else "fail"
+end as grade from stu;
+
+select avg(mark) from stu;
+delete from stu where id="100";
+
+select*from stu;
+
+delete from stu where name like "v%";
+delete from stu;
+
+
