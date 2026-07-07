@@ -1,0 +1,28 @@
+create database test;
+use test;
+create table emp (id int,name varchar(10),age int,salary int,dept varchar(20),designation varchar(30));
+
+INSERT INTO Emp (id, name, age, salary, dept, designation) VALUES
+(31, 'Rohit', 26, 270000, 'Developer', 'Software Engineer'),
+(32, 'Aishwarya', 29, 480000, 'Finance', 'Financial Analyst'),
+(33, 'Vignesh', 24, 230000, 'Tester', 'Test Engineer'),
+(34, 'Harini', 22, 150000, 'HR', 'HR Executive'),
+(35, 'Sathish', 35, 780000, 'Developer', 'Senior Software Engineer'),
+(36, 'Janani', 31, 560000, 'Finance', 'Senior Accountant'),
+(37, 'Bharath', 45, 970000, 'Developer', 'Technical Architect'),
+(38, 'Revathi', 40, 890000, 'Finance', 'Finance Manager'),
+(39, 'Kiran', 27, 360000, 'Tester', 'QA Engineer'),
+(40, 'Anu', 38, 610000, 'HR', 'HR Manager'),
+(41, 'Dinesh', 23, 190000, 'Developer', 'Software Engineer'),
+(42, 'Preethi', 34, 520000, 'Finance', 'Financial Analyst'),
+(43, 'Saravanan', 30, 410000, 'Tester', 'QA Engineer'),
+(44, 'Gayathri', 25, 210000, 'HR', 'HR Executive'),
+(45, 'Arvind', 36, 810000, 'Developer', 'Senior Software Engineer'),
+(46, 'Sindhu', 33, 640000, 'Finance', 'Senior Accountant'),
+(47, 'Nitin', 43, 940000, 'Developer', 'Technical Architect'),
+(48, 'Latha', 41, 920000, 'Finance', 'Finance Manager'),
+(49, 'Vinod', 28, 390000, 'Tester', 'Test Engineer'),
+(50, 'Akash',25,450000,'Developer','Technical Architect');
+
+select *from emp
+
