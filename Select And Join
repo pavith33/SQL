@@ -1,0 +1,53 @@
+create database wed;
+use wed;
+create table student(id int,name varchar(20),dept varchar(20),mark int);
+insert into student values(1,"vams","cse",70);
+insert into student values(2,"pavi","eee",87);
+insert into student values(3,"nizar","civil",60);
+insert into student values(4,"kavin","cse",46);
+insert into student values(5,"kavin","civil",60);
+
+select * from student where mod(id,2)=1;
+
+select dept,max(mark) from student group by dept;
+
+select * from student s where mark=(select max(mark) from student where dept=s.dept);
+
+select name from student group by name having count(*)=1;
+
+create table depart(d_id int primary key,d_name varchar(20));
+insert into depart values(100,"cse");
+insert into depart values(101,"civil");
+insert into depart values(102,"ece");
+insert into depart values(103,"eee");
+
+create table student1(std_id int,name varchar(20),d_id int,foreign key(d_id) references depart(d_id)); 
+insert into student1 values(001,"vams","100");
+insert into student1 values(002,"pavi","102");
+insert into student1 values(003,"niz","100");
+insert into student1 values(004,"kavin","103");
+
+select * from depart;
+
+select * from student1;
+
+create table std1(id int,name varchar(20),mark int);
+
+create table std2(id int,dept varchar(20),age int);
+insert into std1 values(1,"vams",60);
+insert into std1 values(2,"pavi",90);
+insert into std1 values(3,"ak",45);
+insert into std2 values(4,"cse",19);
+insert into std2 values(2,"ece",20);
+insert into std2 values(5,"eee",21);
+
+select a.id,a.name,a.mark,b.dept,b.age from std1 a inner join std2 b on a.id=b.id;
+
+select a.id,a.name,a.mark,b.dept,b.age from std1 a left join std2 b on a.id=b.id;
+
+select b.id,a.name,a.mark,b.dept,b.age from std1 a right join std2 b on a.id=b.id;
+
+select a.id,a.name,a.mark,b.dept,b.age from std1 a left join std2 b on a.id=b.id
+
+union
+select a.id,a.name,a.mark,b.dept,b.age from std1 a right join std2 b on a.id=b.id;
