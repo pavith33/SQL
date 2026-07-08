@@ -1,0 +1,51 @@
+//PYTHON MAIN PROGRAM
+
+from tkinter import *
+import mysql.connector
+con=mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="hits1234",
+    database="India"
+)
+cur=con.cursor()
+def add():
+    cur.execute("insert into t1(name,mark) values(%s,%s)",(e1.get(),e2.get()))
+    con.commit()
+    e1.delete(0,END)
+    e2.delete(0,END)
+def avg():
+    cur.execute("select avg(mark) from t1")
+    a=cur.fetchone()
+    l4.config(text="average=%.2f" % a[0])
+
+root=Tk()
+root.geometry("500x450")
+root.title("STUDENT MARKS")
+
+Label(root,text="NAME").pack()
+e1=Entry(root)
+e1.pack()
+
+Label(root,text="MARKS").pack()
+e2=Entry(root)
+e2.pack()
+
+Button(root,text="Add",command=add).pack()
+Button(root,text="Average",command=avg).pack()
+l4=Label(root,text=" ")
+l4.pack(pady=10)
+root.mainloop()
+
+
+-------------------------------------------------
+//DATABASE
+
+create database India;
+use India;
+create table t1(name varchar(50),mark int) ;
+insert into t1 values ("PAVI",76);
+insert into t1 values ("VAMS",56);
+insert into t1 values ("acc",88);
+desc t1;
+select * from t1;
